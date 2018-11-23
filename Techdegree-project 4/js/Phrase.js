@@ -7,14 +7,23 @@ class Phrase {
 
   addPhraseToDisplay(){//adds letter placeholders to display when game starts.
   //Each letter is presented by an empty box, one list item for each letter.
+    const letterCheck = /^[a-zA-Z]+$/;
+    const spaceCheck = /^\s+$/;
     const phraseDiv = $("#phrase ul");
-    const phraseString = this.phrase;
-    phraseString.forEach(string => {
+
+    this.phrase.forEach(string => {
       const li = document.createElement('li');
-      $(phraseString).append(li);
       li.textContent = string;
-      li.setAttribute("class", "hide");
-      return (string !== " " ? li.className = "letter" : li.className = "space");
+      $(phraseDiv).append(li);
+      let insert;
+
+      if(string.value.match(spaceCheck)){
+          insert = `<li class="hide space">${string}</li>`;
+      } else if(string.value.match(letterCheck)) {
+          insert = `<li class="hide letter">${string}</li>`;
+      }
+      phraseDiv.innerHTML += insert;
+
     });
   }//end addPhraseToDisplay
 

@@ -12,6 +12,5 @@ $('#btn__reset').on('click', ()=>{
   //when start game is clicked, addPhraseToDisplay method should begin.
   $('#overlay ').hide();
   const showPhrase = new Phrase();
-  showPhrase.addPhraseToDisplay(phraseList);
-
+  showPhrase.addPhraseToDisplay();
 });//end click event

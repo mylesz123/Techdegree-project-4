@@ -5,10 +5,10 @@
 class Game {
   constructor(phrase, miss){
     this.phrase = new Phrase;
-    this.miss = tries;
+    this.miss = miss;
   }
   getRandomPhrase() {//randomly selects phrase from array, returns split up phrase fitting placeholders
-   const pickPhrase = phrases[Math.floor(Math.random() * phraseList.length)];
+   const pickPhrase = phraseList[Math.floor(Math.random() * phraseList.length)];
    return pickPhrase.toLowerCase().split("");
  }
 
