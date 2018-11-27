@@ -5,26 +5,25 @@ class Phrase {
     this.phrase = phrase;
   }
 
-  addPhraseToDisplay(){//adds letter placeholders to display when game starts.
-  //Each letter is presented by an empty box, one list item for each letter.
-    const letterCheck = /^[a-zA-Z]+$/;
-    const spaceCheck = /^\s+$/;
+  addPhraseToDisplay(){
+    //adds letter placeholders to display when game starts.
+    //Each letter is presented by an empty box, one list item for each letter.
     const phraseDiv = $("#phrase ul");
-
-    this.phrase.forEach(string => {
-      const li = document.createElement('li');
-      li.textContent = string;
-      $(phraseDiv).append(li);
-      let insert;
-
-      if(string.value.match(spaceCheck)){
-          insert = `<li class="hide space">${string}</li>`;
-      } else if(string.value.match(letterCheck)) {
-          insert = `<li class="hide letter">${string}</li>`;
-      }
-      phraseDiv.innerHTML += insert;
-
+    const letter = this.phrase
+    .split('')
+    .map(string => {
+      //for(let i = 0; 1 <= string.length; i ++){}
+      const letterCheck = /^[a-zA-Z]+$/;
+      const spaceCheck = /^\s+$/;
+        if(string.match(spaceCheck)){// hint : if(number.startsWith('(503)'))
+            return `<li class="hide space"></li>`;
+        }
+        else if(string.match(letterCheck)) {
+            return `<li class="hide letter">${string}</li>`;
+        }
     });
+    return phraseDiv.innerHTML = letter;
+
   }//end addPhraseToDisplay
 
 }//end phrase class

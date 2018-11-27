@@ -13,4 +13,5 @@ $('#btn__reset').on('click', ()=>{
   $('#overlay ').hide();
   const showPhrase = new Phrase();
   showPhrase.addPhraseToDisplay();
+  //showPhrase.getRandomPhrase();
 });//end click event
