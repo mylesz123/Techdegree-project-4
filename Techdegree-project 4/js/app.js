@@ -3,7 +3,7 @@ const phraseList = [
   'holy cow',
   'sweet Jesus',
   'you betcha',
-  'on 4nem',
+  'my leg',
   'love sosa'
 ];
 //perform basic DOM selection, add event handlers, and to reset the game when it ends
@@ -11,7 +11,12 @@ const phraseList = [
 $('#btn__reset').on('click', ()=>{
   //when start game is clicked, addPhraseToDisplay method should begin.
   $('#overlay ').hide();
-  const showPhrase = new Phrase();
-  showPhrase.addPhraseToDisplay();
+  let showPhrase;
+  showPhrase = new Phrase(phraseList);
+  let newGame;
+  newGame = new Game();
+
+  showPhrase.addPhraseToDisplay(newGame.getRandomPhrase());
+
   //showPhrase.getRandomPhrase();
 });//end click event

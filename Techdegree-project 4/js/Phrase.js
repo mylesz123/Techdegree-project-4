@@ -1,17 +1,18 @@
 //console.log('hi');
 //handle creation of phrases
 class Phrase {
-  constructor(phrase){
-    this.phrase = phrase;
+  constructor(phrases){
+    this.phrases = phrases;
   }
 
   addPhraseToDisplay(){
     //adds letter placeholders to display when game starts.
     //Each letter is presented by an empty box, one list item for each letter.
     const phraseDiv = $("#phrase ul");
-    const letter = this.phrase
-    .split('')
-    .map(string => {
+    const phrases = this.phrases;
+    console.log(phrases)
+
+      phrases.forEach(string => {
       //for(let i = 0; 1 <= string.length; i ++){}
       const letterCheck = /^[a-zA-Z]+$/;
       const spaceCheck = /^\s+$/;
@@ -22,7 +23,7 @@ class Phrase {
             return `<li class="hide letter">${string}</li>`;
         }
     });
-    return phraseDiv.innerHTML = letter;
+    return phraseDiv.innerHTML = phrases.split();
 
   }//end addPhraseToDisplay
 

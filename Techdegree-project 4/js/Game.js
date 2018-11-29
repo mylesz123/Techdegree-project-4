@@ -3,13 +3,17 @@
 //handling interactions, getting random phrases,
 //checking for a win, and removing a life counter.
 class Game {
-  constructor(phrase, miss){
-    this.phrase = new Phrase;
-    this.miss = miss;
+  constructor(phrases, missed){
+    this.missed = missed = 0;
+    this.phrases = phrases;
   }
-  getRandomPhrase() {//randomly selects phrase from array, returns split up phrase fitting placeholders
-   const pickPhrase = phraseList[Math.floor(Math.random() * phraseList.length)];
-   return pickPhrase.toLowerCase().split("");
+  getRandomPhrase(phrases) {//randomly selects phrase from array, returns split up phrase fitting placeholders
+    // const phrase = this.phrases;
+    const pickPhrase = Math.floor(Math.random() * (this.phrases.length));
+    const RandomPhrase = new Phrase(this.phrases[pickPhrase]);
+    return RandomPhrase
+
  }
+
 
 }//end game class
