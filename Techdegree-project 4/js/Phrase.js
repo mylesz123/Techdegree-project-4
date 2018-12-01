@@ -1,29 +1,27 @@
 //console.log('hi');
 //handle creation of phrases
 class Phrase {
-  constructor(phrases){
-    this.phrases = phrases;
+  constructor(phrase){
+    this.phrase = phrase;
   }
 
   addPhraseToDisplay(){
     //adds letter placeholders to display when game starts.
     //Each letter is presented by an empty box, one list item for each letter.
-    const phraseDiv = $("#phrase ul");
-    const phrases = this.phrases;
-    console.log(phrases)
+    const phraseDiv = document.querySelector("#phrase ul");
+    const phrasegg = this.phrase;
+    console.log(this.phrase);
 
-      phrases.forEach(string => {
-      //for(let i = 0; 1 <= string.length; i ++){}
-      const letterCheck = /^[a-zA-Z]+$/;
-      const spaceCheck = /^\s+$/;
-        if(string.match(spaceCheck)){// hint : if(number.startsWith('(503)'))
-            return `<li class="hide space"></li>`;
-        }
-        else if(string.match(letterCheck)) {
-            return `<li class="hide letter">${string}</li>`;
-        }
+    phrasegg.forEach(string => {
+      const li = document.createElement('li');
+      phraseDiv.appendChild(li);
+      li.setAttribute('class', 'hide');
+      li.textContent = string;
+      // const letterCheck = /^[a-zA-Z]+$/;
+      // const spaceCheck = /^\s+$/;
+      return string !== ' ' ? li.className = 'letter' : li.className = 'space';
+
     });
-    return phraseDiv.innerHTML = phrases.split();
 
   }//end addPhraseToDisplay
 
