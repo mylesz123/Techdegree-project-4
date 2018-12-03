@@ -21,8 +21,8 @@ class Game {
    /*this method checks to see if the button clicked by the player matches a letter in the phrase.
   If it does not, then call the removeLife() method..
   If the selected letter matches, call the showMatchedLetter() method on the phrase and then call the checkForWin() method.*/
-  if(this.phrase.checkLetter(letter)){
-    this.phrase.showMatchedLetter(letter);
+  if(this.phrases.checkLetter(letter)){
+    this.phrases.showMatchedLetter(letter);
     this.checkForWin();
     this.selected.push(letter);
     console.log(selected);

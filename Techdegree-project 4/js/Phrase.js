@@ -32,7 +32,7 @@ class Phrase {
     console.log(this.phrase.includes(letter));
     console.log(letter);
 
-    letter.map(li => {
+    letter.forEach(li => {
       console.log(li);
       return letter === li.innerHTML ? this.showMatchedLetter(li): li.className = 'hide';
     });

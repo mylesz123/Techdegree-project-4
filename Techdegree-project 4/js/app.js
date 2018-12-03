@@ -19,7 +19,13 @@ function markButton(){
   calls the handleInteraction() method of the Game class.
   */
   $('#qwerty button').on('click keyup', (e) => {
-    console.log(e.target);
+    let select = e.target;
+    console.log(select);
+    select.disabled = true;
+    select.className = 'chosen';
+    newGame.handleInteraction(select);
+
+
   });
 }
 
@@ -38,7 +44,7 @@ const keys = document.querySelectorAll('#qwerty button');
 keys.forEach(key => {
     key.addEventListener('click', (e) => {
          markButton();
-
+         newGame.handleInteraction(e);
     });
   });
 //}
