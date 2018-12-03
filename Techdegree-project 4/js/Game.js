@@ -9,6 +9,7 @@ class Game {
     this.phrases = phrases;
     this.missed = 0;
     this.selected = [];
+    this.randomPhrase = this.getRandomPhrase();
   }
   getRandomPhrase() {//randomly selects phrase from array, returns split up phrase fitting placeholders
     // const phrase = this.phrases;
@@ -21,11 +22,11 @@ class Game {
    /*this method checks to see if the button clicked by the player matches a letter in the phrase.
   If it does not, then call the removeLife() method..
   If the selected letter matches, call the showMatchedLetter() method on the phrase and then call the checkForWin() method.*/
-  if(this.phrases.checkLetter(letter)){
-    this.phrases.showMatchedLetter(letter);
+  if(this.randomPhrase.checkLetter(letter)){
+    this.randomPhrase.showMatchedLetter(letter);
     this.checkForWin();
     this.selected.push(letter);
-    console.log(selected);
+    console.log(letter);
   }
   else{
     this.missed += 1

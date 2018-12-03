@@ -26,16 +26,21 @@ class Phrase {
   }//end addPhraseToDisplay
 
   checkLetter(letter){
+    console.log(letter);
     /*checks to see if letter selected by
     player matches a letter in the phrase.*/
     const input = document.querySelector('.letter');
     console.log(this.phrase.includes(letter));
     console.log(letter);
 
-    letter.forEach(li => {
-      console.log(li);
-      return letter === li.innerHTML ? this.showMatchedLetter(li): li.className = 'hide';
-    });
+    //input.forEach(li => {});
+    for(let i = 0; i < input.length; i ++){
+      //console.log(li);
+      if(letter === li.innerHTML){
+        this.showMatchedLetter(li);
+      }
+      else{li.className = 'hide';}
+    }//
 
   }//end checkLetter
 
