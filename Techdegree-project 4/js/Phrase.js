@@ -25,4 +25,23 @@ class Phrase {
 
   }//end addPhraseToDisplay
 
+  checkLetter(letter){
+    /*checks to see if letter selected by
+    player matches a letter in the phrase.*/
+    const input = document.querySelector('.letter');
+    console.log(this.phrase.includes(letter));
+    console.log(letter);
+
+    letter.map(li => {
+      console.log(li);
+      return letter === li.innerHTML ? this.showMatchedLetter(li): li.className = 'hide';
+    });
+
+  }//end checkLetter
+
+  showMatchedLetter(showLetter){
+    /*reveals the letter(s) on the board that matches player's selection.*/
+    showLetter.className = 'show';
+  }
+
 }//end phrase class
