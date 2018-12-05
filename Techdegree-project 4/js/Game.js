@@ -19,14 +19,23 @@ class Game {
 
  }
  handleInteraction(letter){
-   /*this method checks to see if the button clicked by the player matches a letter in the phrase.
+ /*this method checks to see if the button clicked by
+  the player matches a letter in the phrase.
   If it does not, then call the removeLife() method..
-  If the selected letter matches, call the showMatchedLetter() method on the phrase and then call the checkForWin() method.*/
-  if(this.randomPhrase.checkLetter(letter)){
+  If the selected letter matches, call the showMatchedLetter() method on
+  the phrase and then call the checkForWin() method.*/
+  console.log(letter);
+  if(letter.innerHTML === this.randomPhrase.checkLetter(letter)){
+    /* //button.chosen.textcontent === matches li
+    with this if statement i want to see if a letter clicked
+    on the board matches (checkLetter) the random phrase
+    innerHTML.
+    then showMatchedLetter
+    */
     this.randomPhrase.showMatchedLetter(letter);
     this.checkForWin();
     this.selected.push(letter);
-    console.log(letter);
+    console.log(this.selected);
   }
   else{
     this.missed += 1
