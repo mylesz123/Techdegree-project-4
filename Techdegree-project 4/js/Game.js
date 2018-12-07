@@ -1,20 +1,20 @@
-//console.log('hi');
+//const newPhrase = new Phrase();
 //methods for starting and ending the game,
 //handling interactions, getting random phrases,
 //checking for a win, and removing a life counter.
-const newPhrase = new Phrase();
 
 class Game {
   constructor(phrases, missed){
-    this.phrases = phrases;
+    this.phrases = phrases.map((phrase) => new Phrase(phrase));
     this.missed = 0;
-    this.selected = [];
-    this.randomPhrase = this.getRandomPhrase();
+    //this.selected = [];
+    //this.randomPhrase = this.getRandomPhrase();
   }
   getRandomPhrase() {//randomly selects phrase from array, returns split up phrase fitting placeholders
     // const phrase = this.phrases;
     const pickPhrase = phrases[Math.floor(Math.random() * phrases.length)];
     return pickPhrase.split('');
+    //this.randomPhrase.push(pickPhrase);
     console.log(pickPhrase);
 
  }
@@ -24,28 +24,11 @@ class Game {
   If it does not, then call the removeLife() method..
   If the selected letter matches, call the showMatchedLetter() method on
   the phrase and then call the checkForWin() method.*/
-  console.log(letter);
-  if(letter.innerHTML === this.randomPhrase.checkLetter(letter)){
-    /* //button.chosen.textcontent === matches li
-    with this if statement i want to see if a letter clicked
-    on the board matches (checkLetter) the random phrase
-    innerHTML.
-    then showMatchedLetter
-    */
-    this.randomPhrase.showMatchedLetter(letter);
-    this.checkForWin();
-    this.selected.push(letter);
-    console.log(this.selected);
-  }
-  else{
-    this.missed += 1
-    this.removeLife();
-  }
+
  }
 removeLife(){
   //this method removes a life, removes a heart from the board, and, if the player is out of lives, ends the game.
-  const tries = document.querySelectorAll('#scoreboard ol li');
-  $('.tries').eq([this.missed]).remove();
+
 }
 checkForWin(){
   //this method checks to see if the player has selected all of the letters.

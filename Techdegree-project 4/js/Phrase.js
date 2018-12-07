@@ -1,52 +1,52 @@
-//console.log('hi');
 //handle creation of phrases
 class Phrase {
   constructor(phrase){
-    this.phrase = phrase;
+    this.phrase = phrase; //.toLowerCase()
   }
 
   addPhraseToDisplay(){
     //adds letter placeholders to display when game starts.
     //Each letter is presented by an empty box, one list item for each letter.
     const phraseDiv = document.querySelector("#phrase ul");
-    const phrasegg = this.phrase;
-    console.log(phrasegg);
+    console.log(this.phrase);
 
-    phrasegg.forEach(letter => {
-      const li = document.createElement('li');
-      phraseDiv.appendChild(li);//appending to show letters div
-      li.setAttribute('class', 'hide');
-      li.innerHTML = letter;
-      // const letterCheck = /^[a-zA-Z]+$/;
-      // const spaceCheck = /^\s+$/;
-      return letter !== ' ' ? li.className = 'letter' : li.className = 'space';
-
+    Array.from(this.phrase).forEach(letter => {
+      //this.phrase is iterable so make an Array.from!
+      if(letter !== ' '){
+        phraseDiv.innerHTML +=
+        (`<li class="hide letter ${letter}">${letter}</li>`);
+      }
+      else {
+        phraseDiv.innerHTML +=
+        (`<li class="space"></li>`);
+      }
     });
+
+      // const li = document.createElement('li');
+      // phraseDiv.appendChild(li);//appending to show letters div
+      // li.setAttribute('class', 'hide');
+      // li.innerHTML = letter;
+      // return letter !== ' ' ?
+      // phraseDiv.innerHTML +=
+      //   (`<li class="hide letter ${letter}">${letter}</li>`) :
+      // phraseDiv.innerHTML +=
+      //   (`<li class="space"></li>`);
+
+     //};
 
   }//end addPhraseToDisplay
 
-  checkLetter(letter){
+  checkletter(letter){
+    //letter selected must match a letter in the phrase.
     console.log(letter);
-    /*checks to see if letter selected by
-    player matches a letter in the phrase.*/
-    const input = document.querySelector('.letter');
-    console.log(input);
-    console.log(this.phrase.includes(letter));
-
-    //input.forEach(li => {});
-    for(let i = 0; i < input.length; i ++){
-      //console.log(li);
-      if(letter === li.innerHTML){
-        this.showMatchedLetter(letter);
-      }
-      else{li.className = 'hide';}
-    }
-
+    const letterInPhrase = this.phrase.toLowerCase();
+    return letterInPhrase.match(selected);
   }//end checkLetter
 
   showMatchedLetter(showLetter){
     /*reveals the letter(s) on the board that matches player's selection.*/
-    li.className = 'show';
+    const hidden = `.hide.letter.${selected}`;
+    $(hidden).removeClass('hide').addClass('show');
   }
 
 }//end phrase class
