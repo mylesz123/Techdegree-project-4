@@ -8,18 +8,17 @@ class Phrase {
     //adds letter placeholders to display when game starts.
     //Each letter is presented by an empty box, one list item for each letter.
     const phraseDiv = document.querySelector("#phrase ul");
-    console.log(this.phrase);
+    console.log(this.phrase); //["m", "y", " ", "l", "e", "g"]
 
     Array.from(this.phrase).forEach(letter => {
       //this.phrase is iterable so make an Array.from!
       if(letter !== ' '){
-        phraseDiv.innerHTML +=
-        (`<li class="hide letter ${letter}">${letter}</li>`);
-      }
+        phraseDiv.innerHTML += (`<li class="hide letter ${letter}"> ${letter} </li>`);
+      }//show letter
       else {
-        phraseDiv.innerHTML +=
-        (`<li class="space"></li>`);
+        phraseDiv.innerHTML += `<li class="space"></li>`;
       }
+      console.log(letter);
     });
 
       // const li = document.createElement('li');
@@ -36,11 +35,21 @@ class Phrase {
 
   }//end addPhraseToDisplay
 
-  checkletter(letter){
-    //letter selected must match a letter in the phrase.
-    console.log(letter);
-    const letterInPhrase = this.phrase.toLowerCase();
-    return letterInPhrase.match(selected);
+  checkletter(){
+    /*Add event listener to each keyboard button,
+    so by clicking a button calls the markButton() function.*/
+    //let show = this;
+    $('.key').on('click', (e)=> {
+      const button = e.target;
+      console.log(button);
+      //markButton(button);
+
+     // if(this.className === 'key'){
+     //  markButton(this.textContent);
+     // }
+     return
+    });
+
   }//end checkLetter
 
   showMatchedLetter(showLetter){
