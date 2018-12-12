@@ -10,26 +10,7 @@ class Phrase {
     // console.log(this.phrase);
     // let characters = this.phrase.split('');
     // const phraseDiv = document.querySelector("#phrase ul");
-    //
-    // for(let i = 0; i <= characters.length; i ++){
-    //   if(characters[i] !== ' '){
-    //     phraseDiv.innerHTML += (`<li class="show letter"> ${characters[i]} </li>`);
-    //   }
-    //   else {
-    //     phraseDiv.innerHTML += `<li class="space"></li>`;
-    //   }
-    // };
-
-      // const li = document.createElement('li');
-      // phraseDiv.appendChild(li);//appending to show letters div
-      // li.setAttribute('class', 'hide');
-      // li.innerHTML = letter;
-      // return letter !== ' ' ?
-      // phraseDiv.innerHTML +=
-      //   (`<li class="hide letter ${letter}">${letter}</li>`) :
-      // phraseDiv.innerHTML +=
-      //   (`<li class="space"></li>`);
-     //};
+    
 
     const phraseDiv = document.querySelector("#phrase ul");
     console.log(this.phrase); //["m", "y", " ", "l", "e", "g"]
