@@ -1,26 +1,33 @@
 console.log('hi');
-//const phra ;
-const newGame = new Game(0, phrases);
-//perform basic DOM selection, add event handlers, and to reset the game when it ends
-function resetDisplay(){//this function hides the start screen overlay.
-  $('#overlay ').hide();
-}
 
-function markButton(button){
-  /*this function is called when a player selects a letter.
-  It disables the button on the onscreen keyboard,
-  add show class
-  calls the handleInteraction() method of the Game class.
-  */
-  newGame.handleInteraction();
-}
-markButton();
+const phrases = [
+  'holy cow',
+  'sweet Jesus',
+  'you betcha',
+  'my leg',
+  'love sosa'
+];
+const newGame = new Game(phrases, 0);
+//passing in phrases ^^
 
 /*Add event listener to "Start Game" button,
 calls the resetDisplay() function, creates new Game object*/
-
 $('#btn__reset').on('click', ()=>{
-  //when start game is clicked, addPhraseToDisplay method should begin.
-  resetDisplay();
+  $('#overlay ').hide();
   newGame.startGame();
 });
+
+/*this function is called when a player selects a letter.
+It disables the button on the onscreen keyboard,
+add show class
+calls the handleInteraction() method of the Game class.
+*/
+function markButton(){
+let keys = $('.key');  // selcts the key buttons
+  for (let i = 0; i < keys.length; i++) {
+    $(keys[i]).on('click', e => {
+      newGame.handleInteraction(e.target.textContent);  // calls the handleInteractioin method from Game.js.
+    });
+  };
+}
+markButton();

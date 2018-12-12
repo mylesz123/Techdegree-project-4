@@ -7,6 +7,30 @@ class Phrase {
   addPhraseToDisplay(){
     //adds letter placeholders to display when game starts.
     //Each letter is presented by an empty box, one list item for each letter.
+    // console.log(this.phrase);
+    // let characters = this.phrase.split('');
+    // const phraseDiv = document.querySelector("#phrase ul");
+    //
+    // for(let i = 0; i <= characters.length; i ++){
+    //   if(characters[i] !== ' '){
+    //     phraseDiv.innerHTML += (`<li class="show letter"> ${characters[i]} </li>`);
+    //   }
+    //   else {
+    //     phraseDiv.innerHTML += `<li class="space"></li>`;
+    //   }
+    // };
+
+      // const li = document.createElement('li');
+      // phraseDiv.appendChild(li);//appending to show letters div
+      // li.setAttribute('class', 'hide');
+      // li.innerHTML = letter;
+      // return letter !== ' ' ?
+      // phraseDiv.innerHTML +=
+      //   (`<li class="hide letter ${letter}">${letter}</li>`) :
+      // phraseDiv.innerHTML +=
+      //   (`<li class="space"></li>`);
+     //};
+
     const phraseDiv = document.querySelector("#phrase ul");
     console.log(this.phrase); //["m", "y", " ", "l", "e", "g"]
 
@@ -21,41 +45,24 @@ class Phrase {
       console.log(letter);
     });
 
-      // const li = document.createElement('li');
-      // phraseDiv.appendChild(li);//appending to show letters div
-      // li.setAttribute('class', 'hide');
-      // li.innerHTML = letter;
-      // return letter !== ' ' ?
-      // phraseDiv.innerHTML +=
-      //   (`<li class="hide letter ${letter}">${letter}</li>`) :
-      // phraseDiv.innerHTML +=
-      //   (`<li class="space"></li>`);
-
-     //};
-
   }//end addPhraseToDisplay
 
-  checkletter(){
-    /*Add event listener to each keyboard button,
-    so by clicking a button calls the markButton() function.*/
-    //let show = this;
-    $('.key').on('click', (e)=> {
-      const button = e.target;
-      console.log(button);
-      //markButton(button);
+  checkletter(letter){
+    //letter selected must match a letter in the phrase.
+    const check = this.phrase.toLowerCase();
+    return check.includes(letter);
+  }
 
-     // if(this.className === 'key'){
-     //  markButton(this.textContent);
-     // }
-     return
-    });
-
-  }//end checkLetter
-
-  showMatchedLetter(showLetter){
+  showMatchedLetter(targetLetter){
     /*reveals the letter(s) on the board that matches player's selection.*/
-    const hidden = `.hide.letter.${selected}`;
-    $(hidden).removeClass('hide').addClass('show');
+    //const hidden = `.hide.letter.${showLetter}`;
+    let li = document.querySelectorAll('li');
+    let phrase = this.phrase;
+    for (let i = 0; i < phrase.length; i++) {
+      if(phrase[i] === targetLetter) {
+          $(li).removeClass('hide').addClass('show');
+      }
+    }
   }
 
 }//end phrase class
