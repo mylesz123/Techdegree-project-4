@@ -7,11 +7,6 @@ class Phrase {
   addPhraseToDisplay(){
     //adds letter placeholders to display when game starts.
     //Each letter is presented by an empty box, one list item for each letter.
-    // console.log(this.phrase);
-    // let characters = this.phrase.split('');
-    // const phraseDiv = document.querySelector("#phrase ul");
-    
-
     const phraseDiv = document.querySelector("#phrase ul");
     console.log(this.phrase); //["m", "y", " ", "l", "e", "g"]
 
@@ -23,9 +18,8 @@ class Phrase {
       else {
         phraseDiv.innerHTML += `<li class="space"></li>`;
       }
-      console.log(letter);
+      //console.log(letter);
     });
-
   }//end addPhraseToDisplay
 
   checkletter(letter){
@@ -36,14 +30,7 @@ class Phrase {
 
   showMatchedLetter(targetLetter){
     /*reveals the letter(s) on the board that matches player's selection.*/
-    //const hidden = `.hide.letter.${showLetter}`;
-    let li = document.querySelectorAll('li');
-    let phrase = this.phrase;
-    for (let i = 0; i < phrase.length; i++) {
-      if(phrase[i] === targetLetter) {
-          $(li).removeClass('hide').addClass('show');
-      }
-    }
+    const hidden = `.hide.letter.${selected}`;
+    $(hidden).removeClass('hide').addClass('show');
   }
-
 }//end phrase class
