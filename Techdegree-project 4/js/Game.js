@@ -18,22 +18,24 @@ class Game {
     the player matches a letter in the phrase.
     */
     const e = event.target;
-    e.attr('disabled', true);
-    let check = this.randPhrase;
+    e.disabled = true;
+    let checkPhrase = this.randPhrase;
+    let checkLetter = checkPhrase.checkLetter(e.textContent);
 
     /*If the selected letter matches, call the showMatchedLetter() method on
     the phrase and then call the checkForWin() method.*/
-    if(check.checkletter(e.textContent) === true){
-      check.showMatchedLetter(letter);
-      e.addClass('chosen');
-      this.checkForWin();
-    }
-    else{//else call removeLife() method..
+    if(checkLetter !== true){//if checkletter is flase, call removeLife()
       console.log('wrong');
-      e.addClass('wrong');
+      e.classList.add('wrong');
       this.removeLife();
     }
- }
+    else{
+      checkPhrase.showMatchedLetter(letter);
+      e.classList.add('chosen');
+      this.checkForWin();
+    }
+ }//end handleInteraction
+
 removeLife(){
   //this method removes a life, removes a heart from the board, and, if the player is out of lives, ends the game.
   // if (this.missed === 5) {
@@ -51,6 +53,7 @@ gameOver(){
  startGame() {
   let randPhrase = this.getRandomPhrase();
   new Phrase(randPhrase).addPhraseToDisplay();
+  this.missed = 0;
 }
 
 

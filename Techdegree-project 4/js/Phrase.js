@@ -24,7 +24,7 @@ class Phrase {
 
   checkletter(letter){
     //letter selected must match a letter in the phrase.
-    const check = this.phrase.toLowerCase();
+    const check = this.phrase; //.toLowerCase()
     return check.includes(letter);
   }
 
