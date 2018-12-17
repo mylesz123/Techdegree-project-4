@@ -7,7 +7,8 @@ class Game {
   constructor(phrases, missed){
     this.phrases = phrases.map((phrase) => new Phrase(phrase));
     this.missed = 0;
-    this.randomPhrase = this.getRandomPhrase();
+    this.randomPhrase = new Phrase(this.getRandomPhrase());//new object
+    this.ob;//supposedly the phrase bject
   }
 
   getRandomPhrase() {//randomly selects phrase from array, returns split up phrase fitting placeholders
@@ -19,22 +20,15 @@ class Game {
     the player matches a letter in the phrase.
     */
     const phraseDiv = document.querySelector("#phrase ul");
-    console.log(phraseDiv.textContent);//if(phraseDiv.textContent.includes(letter))
-    console.log(letter);
+    //if(phraseDiv.textContent.includes(letter))
     const e = event.target;
     e.disabled = true;
-    // let checkPhrase = this.randomPhrase;
-    // console.log(checkPhrase.phrase);//returning phrase from object
-    // let x = checkPhrase.checkletter(e.textContent);//returns bool
-    // console.log(x)
-    // let checkLetter;// = checkPhrase.checkLetter(e.textContent);
-
 
     /*If the selected letter matches, call the showMatchedLetter() method on
     the phrase and then call the checkForWin() method.*/
     if(phraseDiv.textContent.includes(letter)){//if checkletter is flase, call removeLife()
       e.classList.add('chosen');
-      phrase.showMatchedLetter(letter);
+      this.randomPhrase.showMatchedLetter(letter);
       this.checkForWin();
     }
     else{
@@ -59,8 +53,7 @@ gameOver(){
 }
 
  startGame() {
-  let randPhrase = this.getRandomPhrase();
-  new Phrase(randPhrase).addPhraseToDisplay();
+  this.randomPhrase.addPhraseToDisplay();
   this.missed = 0;
 }
 

@@ -33,16 +33,23 @@ class Phrase {
 
   showMatchedLetter(letter){
     /*reveals the letter(s) on the board that matches player's selection.*/
-    //const hidden = `.hide.letter.${selected}`;
+    //loop list item. If the text content matches the letter, add the class "show"
+
+    //const hidden = `.hide.letter.${letter}`;
+    // console.log(letter);
+    // $('#phrase li').removeClass('hide').addClass('show');
+
+    //let letters = document.querySelectorAll('.hide letter');
     console.log(letter);
-    $('#phrase li').removeClass('hide').addClass('show');
+    let li = $('#phrase li');
+    console.log(li);
 
-  //   $('.letter').each((index, box) => {  // for each "box"
-  //   if(box.textContent == letter) {  // if the textContent matches the letter
-  //     box.classList.add("show");      // reveal that box
-  //   }
-  // });
-
+    for (let i = 0; i < li.length; i++){
+      if (li[i].textContent.toLowerCase() == letter.toLowerCase()){
+        console.log(li[i]);
+        $(li[i]).removeClass('hide').addClass('show');
+      }
+    }
   }
 
 }//end phrase class
