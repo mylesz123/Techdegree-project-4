@@ -8,7 +8,6 @@ class Game {
     this.phrases = phrases.map((phrase) => new Phrase(phrase));
     this.missed = 0;
     this.randomPhrase = new Phrase(this.getRandomPhrase());//new object
-    this.ob;//supposedly the phrase bject
   }
 
   getRandomPhrase() {//randomly selects phrase from array, returns split up phrase fitting placeholders
