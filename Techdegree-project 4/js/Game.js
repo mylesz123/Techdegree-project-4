@@ -7,6 +7,7 @@ class Game {
   constructor(phrases, missed){
     this.phrases = phrases.map((phrase) => new Phrase(phrase));
     this.missed = 0;
+    this.randomPhrase = this.getRandomPhrase();
   }
 
   getRandomPhrase() {//randomly selects phrase from array, returns split up phrase fitting placeholders
@@ -17,22 +18,29 @@ class Game {
    /*this method checks to see if the button clicked by
     the player matches a letter in the phrase.
     */
+    const phraseDiv = document.querySelector("#phrase ul");
+    console.log(phraseDiv.textContent);//if(phraseDiv.textContent.includes(letter))
+    console.log(letter);
     const e = event.target;
     e.disabled = true;
-    let checkPhrase = this.randPhrase;
-    let checkLetter = checkPhrase.checkLetter(e.textContent);
+    // let checkPhrase = this.randomPhrase;
+    // console.log(checkPhrase.phrase);//returning phrase from object
+    // let x = checkPhrase.checkletter(e.textContent);//returns bool
+    // console.log(x)
+    // let checkLetter;// = checkPhrase.checkLetter(e.textContent);
+
 
     /*If the selected letter matches, call the showMatchedLetter() method on
     the phrase and then call the checkForWin() method.*/
-    if(checkLetter !== true){//if checkletter is flase, call removeLife()
+    if(phraseDiv.textContent.includes(letter)){//if checkletter is flase, call removeLife()
+      e.classList.add('chosen');
+      phrase.showMatchedLetter(letter);
+      this.checkForWin();
+    }
+    else{
       console.log('wrong');
       e.classList.add('wrong');
       this.removeLife();
-    }
-    else{
-      checkPhrase.showMatchedLetter(letter);
-      e.classList.add('chosen');
-      this.checkForWin();
     }
  }//end handleInteraction
 
