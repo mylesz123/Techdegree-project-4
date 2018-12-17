@@ -36,10 +36,8 @@ class Phrase {
     //loop list item. If the text content matches the letter, add the class "show"
 
     //const hidden = `.hide.letter.${letter}`;
-    // console.log(letter);
     // $('#phrase li').removeClass('hide').addClass('show');
 
-    //let letters = document.querySelectorAll('.hide letter');
     console.log(letter);
     let li = $('#phrase li');
     console.log(li);
