@@ -14,7 +14,7 @@ class Phrase {
     Array.from(tp).forEach(letter => {
       //this.phrase is iterable so make an Array.from!
       if(letter !== ' '){
-phraseDiv.innerHTML += (`<li class="hide letter ${letter}">${letter}</li>`);      }//show letter
+        phraseDiv.innerHTML += (`<li class="hide letter ${letter}">${letter}</li>`);      }//show letter
       else {
         phraseDiv.innerHTML += `<li class="space"></li>`;
       }
@@ -34,16 +34,12 @@ phraseDiv.innerHTML += (`<li class="hide letter ${letter}">${letter}</li>`);    
     /*reveals the letter(s) on the board that matches player's selection.*/
     //loop list item. If the text content matches the letter, add the class "show"
 
-    //const hidden = `.hide.letter.${letter}`;
-    // $('#phrase li').removeClass('hide').addClass('show');
-
     console.log(letter);
     let li = $('#phrase li');
-    console.log(li);
+    //console.log(li);
 
     for (let i = 0; i < li.length; i++){
       if (li[i].textContent.toLowerCase() == letter.toLowerCase()){
-        console.log(li[i]);
         $(li[i]).removeClass('hide').addClass('show');
       }
     }

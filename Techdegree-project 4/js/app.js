@@ -12,6 +12,7 @@ const newGame = new Game(phrases, 0);
 
 /*Add event listener to "Start Game" button,
 calls the resetDisplay() function, creates new Game object*/
+
 $('#btn__reset').on('click', ()=>{
   $('#overlay ').hide();
   newGame.startGame();
