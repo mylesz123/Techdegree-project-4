@@ -23,7 +23,7 @@ class Game {
     e.disabled = true;
 
     /*If the selected letter matches, call the showMatchedLetter() method on
-    the phrase and then call the checkForWin() method.*/
+    the phrase & checkForWin(), else removeLife()*/
     if(phraseDiv.textContent.includes(letter)){//if checkletter is false, call removeLife()
       e.classList.add('chosen');
       this.randomPhrase.showMatchedLetter(letter);
@@ -56,7 +56,7 @@ checkForWin(){
     $('#game-over-message').text('Welcome to the winners circle!');
     $('#btn__reset').on('click', () => {
       location.reload(); //takes me back to original screen, functions as reset display
-      //location mathod learned from fellow treehouser
+      //location method learned from fellow treehouser
     });
     return true
   }

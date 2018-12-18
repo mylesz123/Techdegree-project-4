@@ -2,7 +2,7 @@ console.log('hi');
 
 const phrases = [
   'holy cow',
-  'sweet Jesus',
+  'california love',
   'you betcha',
   'my leg',
   'love sosa'
@@ -23,11 +23,12 @@ It disables the button on the onscreen keyboard,
 add show class
 calls the handleInteraction() method of the Game class.
 */
+
 function markButton(){
 let keys = $('.key');  // selcts the key buttons
   for (let i = 0; i < keys.length; i++) {
     $(keys[i]).on('click', () => {
-      newGame.handleInteraction(event.target.textContent);  // calls the handleInteractioin method from Game.js.
+      newGame.handleInteraction(event.target.textContent);
     });
   };
 }
