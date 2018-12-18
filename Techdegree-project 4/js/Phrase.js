@@ -14,7 +14,8 @@ class Phrase {
     Array.from(tp).forEach(letter => {
       //this.phrase is iterable so make an Array.from!
       if(letter !== ' '){
-        phraseDiv.innerHTML += (`<li class="hide letter ${letter}">${letter}</li>`);      }//show letter
+        phraseDiv.innerHTML += (`<li class="hide letter ${letter}">${letter}</li>`); 
+      }//s/o jennifer
       else {
         phraseDiv.innerHTML += `<li class="space"></li>`;
       }

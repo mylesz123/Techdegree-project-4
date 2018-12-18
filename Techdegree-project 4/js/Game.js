@@ -54,11 +54,9 @@ checkForWin(){
   if($('.letter').length ===  $('.letter.show').length) {
     $('#overlay').addClass('win').show(); //winning green screen
     $('#game-over-message').text('Welcome to the winners circle!');
-    $('#btn__reset').on('click', ()=> {
+    $('#btn__reset').on('click', () => {
       location.reload(); //takes me back to original screen, functions as reset display
-      /* learned from fellow treehouser
-          https://developer.mozilla.org/en-US/docs/Web/API/Location/reload
-      */
+      //location mathod learned from fellow treehouser
     });
     return true
   }
@@ -71,7 +69,7 @@ gameOver(){
     $('#overlay').addClass('lose a').show();
     $('#game-over-message').text('Sorry, better luck next time!');
     $('#btn__reset').text('Play again?');
-    $('#btn__reset').on('click', ()=> {
+    $('#btn__reset').on('click', () => {
         location.reload(); //resetDisplay
     });
   }
